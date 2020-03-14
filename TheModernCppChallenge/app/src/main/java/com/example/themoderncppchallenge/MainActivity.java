@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
+     * @param i
      */
-    public native String stringFromJNI();
+    public native String Sum3And5Multiples(int i);
 }
