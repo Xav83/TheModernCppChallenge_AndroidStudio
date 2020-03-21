@@ -51,6 +51,4 @@ public class MainActivity extends AppCompatActivity {
      * @param i
      */
     public native String Sum3And5Multiples(int i);
-
-    public native String Gcd(int i, int j);
 }

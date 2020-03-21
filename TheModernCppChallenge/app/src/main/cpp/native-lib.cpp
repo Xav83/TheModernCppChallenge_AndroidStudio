@@ -14,7 +14,7 @@ Java_com_example_themoderncppchallenge_MainActivity_Sum3And5Multiples(
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_example_themoderncppchallenge_MainActivity_Gcd(JNIEnv *env, jobject thiz, jint i, jint j) {
+Java_com_example_themoderncppchallenge_Problem_12_Gcd(JNIEnv *env, jobject thiz, jint i, jint j) {
     auto result = std::gcd(i, j);
     return env->NewStringUTF(std::to_string(result).c_str());
 }
