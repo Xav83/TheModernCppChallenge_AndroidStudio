@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">The Modern Cpp Challenge</string>
+    <string name="editText_number_hint">Please enter a number.</string>
 </resources>
