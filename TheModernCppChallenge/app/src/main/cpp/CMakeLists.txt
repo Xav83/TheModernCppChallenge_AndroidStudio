@@ -5,6 +5,9 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
+add_library(problem1 STATIC Problem_1.hpp)
+set_property(TARGET problem1 PROPERTY LINKER_LANGUAGE CXX)
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -41,4 +44,4 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} )
+                       ${log-lib} problem1)
