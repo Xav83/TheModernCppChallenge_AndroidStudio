@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     limit =  Integer.parseInt(s.toString());
                 }
                 TextView tv = findViewById(R.id.result);
-                tv.setText("Result: " + Sum3And5Multiples(limit));
+                tv.setText(getString(R.string.result_placeholder, Sum3And5Multiples(limit)));
             }
 
             @Override

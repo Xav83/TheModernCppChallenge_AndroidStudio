@@ -20,7 +20,7 @@ public class Problem_2 extends AppCompatActivity {
         int secondNumber = extractNumberFromEditText(et2);
 
         TextView tv = findViewById(R.id.result);
-        tv.setText("Result: " + Gcd(firstNumber, secondNumber));
+        tv.setText(getString(R.string.result_placeholder, Gcd(firstNumber, secondNumber)));
     }
 
     private int extractNumberFromEditText(EditText et)
