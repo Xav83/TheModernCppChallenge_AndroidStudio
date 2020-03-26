@@ -2,9 +2,11 @@ package com.example.themoderncppchallenge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     limit =  Integer.parseInt(s.toString());
                 }
                 TextView tv = findViewById(R.id.result);
-                tv.setText("Result: " + Sum3And5Multiples(limit));
+                tv.setText(getString(R.string.result_placeholder, Sum3And5Multiples(limit)));
             }
 
             @Override
@@ -45,10 +47,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void goToNextProblem(View v)
+    {
+        Intent intent = new Intent(this, Problem_2.class);
+        startActivity(intent);
+    }
+
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
-     * @param i
+     * @param i input given by the user which is the limit used by the algorithm
      */
     public native String Sum3And5Multiples(int i);
 }

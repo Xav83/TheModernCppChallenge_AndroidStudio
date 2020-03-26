@@ -1,18 +1,8 @@
+#include "Problem_1.hpp"
+#include "Problem_2.hpp"
+
 #include <jni.h>
 #include <string>
-
-[[nodiscard]] constexpr auto sumOf3and5MultipleUpTo(const unsigned int limit)
-{
-    size_t sum = 0;
-    for(auto number = limit; number >= 3; --number)
-    {
-        if(number % 3 == 0 || number % 5 == 0)
-        {
-            sum += number;
-        }
-    }
-    return sum;
-}
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_example_themoderncppchallenge_MainActivity_Sum3And5Multiples(
@@ -20,4 +10,11 @@ Java_com_example_themoderncppchallenge_MainActivity_Sum3And5Multiples(
         jobject /* this */, const jint i) {
     auto sum = sumOf3and5MultipleUpTo(i);
     return env->NewStringUTF(std::to_string(sum).c_str());
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_example_themoderncppchallenge_Problem_12_Gcd(JNIEnv *env, jobject /* this */, jint i, jint j) {
+    auto result = std::gcd(i, j);
+    return env->NewStringUTF(std::to_string(result).c_str());
 }
