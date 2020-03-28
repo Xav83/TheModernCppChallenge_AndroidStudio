@@ -6,6 +6,8 @@
     <string name="button_next">NEXT</string>
     <string name="result">Result:</string>
     <string name="result_placeholder">Result: %1$s</string>
+    <string name="problem_title_unknown">Please specify a problem title.</string>
+    <string name="problem_text_unknown">Please specify a problem text.</string>
     <string name="problem_1_title">Sum of naturals divisible by 3 and 5.</string>
     <string name="problem_1_text">Write a program that calculates and prints the sum of all natural numbers divisible by either 3 or 5, up to a given limit entered by the user.</string>
     <string name="problem_2_title">Greatest common divisor.</string>

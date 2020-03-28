@@ -37,6 +37,12 @@ public class Problem_2 extends AppCompatActivity {
         TextView tv = findViewById(R.id.subtitle);
         tv.setText(getString(R.string.problem_with_number, 2));
 
+        TextView problemTitle = findViewById(R.id.problemTitle);
+        problemTitle.setText(getString(R.string.problem_2_title));
+
+        TextView problemText = findViewById(R.id.problemText);
+        problemText.setText(getString(R.string.problem_2_text));
+
         EditText et = findViewById(R.id.first_input_number);
         et.addTextChangedListener(new TextWatcher() {
             @Override
