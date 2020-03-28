@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">The Modern Cpp Challenge</string>
+    <string name="problem_with_number">Problem %1$d</string>
     <string name="editText_number_hint">Please enter a number.</string>
     <string name="button_previous">PREVIOUS</string>
     <string name="button_next">NEXT</string>

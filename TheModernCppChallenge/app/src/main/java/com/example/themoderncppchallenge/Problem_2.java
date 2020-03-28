@@ -34,6 +34,9 @@ public class Problem_2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem_2);
 
+        TextView tv = findViewById(R.id.subtitle);
+        tv.setText(getString(R.string.problem_with_number, 2));
+
         EditText et = findViewById(R.id.first_input_number);
         et.addTextChangedListener(new TextWatcher() {
             @Override

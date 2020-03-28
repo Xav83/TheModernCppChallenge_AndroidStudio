@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView tv = findViewById(R.id.subtitle);
+        tv.setText(getString(R.string.problem_with_number, 1));
+
         EditText et = findViewById(R.id.plain_text_input);
         et.addTextChangedListener(new TextWatcher() {
             @Override
