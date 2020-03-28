@@ -12,4 +12,6 @@
     <string name="problem_1_text">Write a program that calculates and prints the sum of all natural numbers divisible by either 3 or 5, up to a given limit entered by the user.</string>
     <string name="problem_2_title">Greatest common divisor.</string>
     <string name="problem_2_text">Write a program that, given two positive integers, will calculate and print the greatest common divisor of the two.</string>
+    <string name="problem_3_title">Least Common Multiplier.</string>
+    <string name="problem_3_text">Write a program that will, given two or more positive integers, calculate and print the least common multiplier of them all.</string>
 </resources>

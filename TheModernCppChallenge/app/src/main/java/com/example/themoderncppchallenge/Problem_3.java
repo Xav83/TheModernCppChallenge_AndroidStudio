@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Problem_2 extends AppCompatActivity {
+public class Problem_3 extends AppCompatActivity {
     private void computeAndDisplayResult()
     {
         EditText et1 = findViewById(R.id.first_input_number);
@@ -20,7 +20,7 @@ public class Problem_2 extends AppCompatActivity {
         int secondNumber = extractNumberFromEditText(et2);
 
         TextView tv = findViewById(R.id.result);
-        tv.setText(getString(R.string.result_placeholder, Gcd(firstNumber, secondNumber)));
+        tv.setText(getString(R.string.result_placeholder, Lcm(firstNumber, secondNumber)));
     }
 
     private int extractNumberFromEditText(EditText et)
@@ -32,16 +32,16 @@ public class Problem_2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_problem_2);
+        setContentView(R.layout.activity_problem_3);
 
-        TextView tv = findViewById(R.id.subtitle);
-        tv.setText(getString(R.string.problem_with_number, 2));
+        TextView subtitle = findViewById(R.id.subtitle);
+        subtitle.setText(getString(R.string.problem_with_number, 3));
 
         TextView problemTitle = findViewById(R.id.problemTitle);
-        problemTitle.setText(getString(R.string.problem_2_title));
+        problemTitle.setText(getString(R.string.problem_3_title));
 
         TextView problemText = findViewById(R.id.problemText);
-        problemText.setText(getString(R.string.problem_2_text));
+        problemText.setText(getString(R.string.problem_3_text));
 
         EditText et = findViewById(R.id.first_input_number);
         et.addTextChangedListener(new TextWatcher() {
@@ -92,15 +92,9 @@ public class Problem_2 extends AppCompatActivity {
 
     public void goToPreviousProblem(View v)
     {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Problem_2.class);
         startActivity(intent);
     }
 
-    public void goToNextProblem(View v)
-    {
-        Intent intent = new Intent(this, Problem_3.class);
-        startActivity(intent);
-    }
-
-    public native String Gcd(int i, int j);
+    public native String Lcm(int i, int j);
 }
