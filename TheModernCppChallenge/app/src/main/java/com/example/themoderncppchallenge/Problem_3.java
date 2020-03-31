@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,20 +14,10 @@ import java.util.List;
 public class Problem_3 extends AppCompatActivity {
     private void computeAndDisplayResult()
     {
-        EditText et1 = findViewById(R.id.first_input_number);
-        EditText et2 = findViewById(R.id.second_input_number);
-
-        int firstNumber = extractNumberFromEditText(et1);
-        int secondNumber = extractNumberFromEditText(et2);
+        assert userInputs.size() > 2 : "lcm works with at least two parameters";
 
         TextView tv = findViewById(R.id.result);
-        tv.setText(getString(R.string.result_placeholder, Lcm(firstNumber, secondNumber)));
-    }
-
-    private int extractNumberFromEditText(EditText et)
-    {
-        assert et.getText().length() != 0 : "The EditText must not be empty";
-        return Integer.parseInt(et.getText().toString());
+        tv.setText(getString(R.string.result_placeholder, Lcm(userInputs.stream().mapToInt(i->i).toArray())));
     }
 
     @Override
@@ -48,28 +36,6 @@ public class Problem_3 extends AppCompatActivity {
 
         TextView calculation = findViewById(R.id.calculation);
         calculation.setText(getString(R.string.problem_3_current_calculation, ""));
-
-        EditText et = findViewById(R.id.input_number);
-        et.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(count == 0)
-                {
-                    return;
-                }
-                computeAndDisplayResult();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
 
     public void goToPreviousProblem(View v)
@@ -99,6 +65,10 @@ public class Problem_3 extends AppCompatActivity {
         }
         TextView calculation = findViewById(R.id.calculation);
         calculation.setText(getString(R.string.problem_3_current_calculation, sb.toString()));
+        if(userInputs.size() >= 2)
+        {
+            computeAndDisplayResult();
+        }
     }
 
     public void clearUserInput(View v)
@@ -107,9 +77,12 @@ public class Problem_3 extends AppCompatActivity {
 
         TextView calculation = findViewById(R.id.calculation);
         calculation.setText(getString(R.string.problem_3_current_calculation, ""));
+
+        TextView result = findViewById(R.id.result);
+        result.setText(getString(R.string.result));
     }
 
-    public native String Lcm(int i, int j);
+    public native String Lcm(int [] userInputs);
 
     List<Integer> userInputs = new ArrayList<Integer>();
 }
