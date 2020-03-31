@@ -43,7 +43,7 @@ public class Problem_3 extends AppCompatActivity {
         TextView problemText = findViewById(R.id.problemText);
         problemText.setText(getString(R.string.problem_3_text));
 
-        EditText et = findViewById(R.id.first_input_number);
+        EditText et = findViewById(R.id.input_number);
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -52,31 +52,7 @@ public class Problem_3 extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                EditText et = findViewById(R.id.second_input_number);
-                if(et.getText().length() == 0 || count == 0)
-                {
-                    return;
-                }
-                computeAndDisplayResult();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        EditText et2 = findViewById(R.id.second_input_number);
-        et2.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                EditText et = findViewById(R.id.first_input_number);
-                if(et.getText().length() == 0 || count == 0)
+                if(count == 0)
                 {
                     return;
                 }
@@ -94,6 +70,15 @@ public class Problem_3 extends AppCompatActivity {
     {
         Intent intent = new Intent(this, Problem_2.class);
         startActivity(intent);
+    }
+
+    public void addUserInput(View v)
+    {
+
+    }
+
+    public void clearUserInput(View v)
+    {
     }
 
     public native String Lcm(int i, int j);
