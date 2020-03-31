@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Problem_3 extends AppCompatActivity {
     private void computeAndDisplayResult()
     {
@@ -43,6 +46,9 @@ public class Problem_3 extends AppCompatActivity {
         TextView problemText = findViewById(R.id.problemText);
         problemText.setText(getString(R.string.problem_3_text));
 
+        TextView calculation = findViewById(R.id.calculation);
+        calculation.setText(getString(R.string.problem_3_current_calculation, ""));
+
         EditText et = findViewById(R.id.input_number);
         et.addTextChangedListener(new TextWatcher() {
             @Override
@@ -74,12 +80,36 @@ public class Problem_3 extends AppCompatActivity {
 
     public void addUserInput(View v)
     {
+        EditText et = findViewById(R.id.input_number);
+        if(et.getText().length() == 0)
+        {
+            return;
+        }
+        userInputs.add(Integer.parseInt(et.getText().toString()));
+        et.setText("");
 
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < userInputs.size(); ++i)
+        {
+            sb.append(userInputs.get(i));
+            if(i != userInputs.size() - 1)
+            {
+                sb.append(", ");
+            }
+        }
+        TextView calculation = findViewById(R.id.calculation);
+        calculation.setText(getString(R.string.problem_3_current_calculation, sb.toString()));
     }
 
     public void clearUserInput(View v)
     {
+        userInputs.clear();
+
+        TextView calculation = findViewById(R.id.calculation);
+        calculation.setText(getString(R.string.problem_3_current_calculation, ""));
     }
 
     public native String Lcm(int i, int j);
+
+    List<Integer> userInputs = new ArrayList<Integer>();
 }
