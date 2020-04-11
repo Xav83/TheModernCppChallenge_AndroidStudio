@@ -25,6 +25,30 @@ public class Problem_4 extends AppCompatActivity {
 
         TextView problemText = findViewById(R.id.problemText);
         problemText.setText(getString(R.string.problem_4_text));
+
+        EditText et = findViewById(R.id.plain_text_input);
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int limit = 0;
+                if(count != 0)
+                {
+                    limit =  Integer.parseInt(s.toString());
+                }
+                TextView tv = findViewById(R.id.result);
+                tv.setText(getString(R.string.result_placeholder, LargestPrimeSmallerThan(limit)));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     public void goToPreviousProblem(View v)
@@ -32,4 +56,6 @@ public class Problem_4 extends AppCompatActivity {
         Intent intent = new Intent(this, Problem_3.class);
         startActivity(intent);
     }
+
+    public native String LargestPrimeSmallerThan(int userInput);
 }
