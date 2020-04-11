@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,6 +26,9 @@ public class Problem_4 extends ProblemInterface {
 
         TextView problemText = findViewById(R.id.problemText);
         problemText.setText(getString(R.string.problem_4_text));
+
+        Button button_next = findViewById(R.id.button_next);
+        button_next.setVisibility(View.INVISIBLE);
 
         EditText et = findViewById(R.id.plain_text_input);
         et.addTextChangedListener(new TextWatcher() {
