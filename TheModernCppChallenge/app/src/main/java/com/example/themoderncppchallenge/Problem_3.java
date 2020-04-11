@@ -38,6 +38,12 @@ public class Problem_3 extends AppCompatActivity {
         calculation.setText(getString(R.string.problem_3_current_calculation, ""));
     }
 
+    public void goToNextProblem(View v)
+    {
+        Intent intent = new Intent(this, Problem_4.class);
+        startActivity(intent);
+    }
+
     public void goToPreviousProblem(View v)
     {
         Intent intent = new Intent(this, Problem_2.class);
