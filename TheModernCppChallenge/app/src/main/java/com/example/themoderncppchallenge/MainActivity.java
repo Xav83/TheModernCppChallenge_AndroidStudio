@@ -1,7 +1,5 @@
 package com.example.themoderncppchallenge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ProblemInterface {
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -60,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this, Problem_2.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void goToPreviousProblem(View v) {
+        // empty on purpose
     }
 
     /**

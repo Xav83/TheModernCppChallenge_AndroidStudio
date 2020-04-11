@@ -1,7 +1,5 @@
 package com.example.themoderncppchallenge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Problem_2 extends AppCompatActivity {
+public class Problem_2 extends ProblemInterface {
     private void computeAndDisplayResult()
     {
         EditText et1 = findViewById(R.id.first_input_number);

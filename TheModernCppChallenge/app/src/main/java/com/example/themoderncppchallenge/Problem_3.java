@@ -1,7 +1,5 @@
 package com.example.themoderncppchallenge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem_3 extends AppCompatActivity {
+public class Problem_3 extends ProblemInterface {
     private void computeAndDisplayResult()
     {
         assert userInputs.size() > 2 : "lcm works with at least two parameters";

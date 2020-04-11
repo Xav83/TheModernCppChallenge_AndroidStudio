@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Problem_4 extends AppCompatActivity {
+public class Problem_4 extends ProblemInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,11 @@ public class Problem_4 extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void goToNextProblem(View v) {
+        // empty on purpose
     }
 
     public void goToPreviousProblem(View v)
