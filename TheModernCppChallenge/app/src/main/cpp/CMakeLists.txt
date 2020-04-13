@@ -14,6 +14,9 @@ set_property(TARGET problem2 PROPERTY LINKER_LANGUAGE CXX)
 add_library(problem3 STATIC Problem_3.hpp)
 set_property(TARGET problem3 PROPERTY LINKER_LANGUAGE CXX)
 
+add_library(problem4 STATIC Problem_4.hpp)
+set_property(TARGET problem4 PROPERTY LINKER_LANGUAGE CXX)
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -50,4 +53,4 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} problem1 problem2 problem3)
+                       ${log-lib} problem1 problem2 problem3 problem4)

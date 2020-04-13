@@ -1,7 +1,5 @@
 package com.example.themoderncppchallenge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem_3 extends AppCompatActivity {
+public class Problem_3 extends ProblemInterface {
     private void computeAndDisplayResult()
     {
         assert userInputs.size() > 2 : "lcm works with at least two parameters";
@@ -36,6 +34,12 @@ public class Problem_3 extends AppCompatActivity {
 
         TextView calculation = findViewById(R.id.calculation);
         calculation.setText(getString(R.string.problem_3_current_calculation, ""));
+    }
+
+    public void goToNextProblem(View v)
+    {
+        Intent intent = new Intent(this, Problem_4.class);
+        startActivity(intent);
     }
 
     public void goToPreviousProblem(View v)

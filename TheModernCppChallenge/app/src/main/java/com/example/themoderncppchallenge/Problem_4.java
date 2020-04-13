@@ -1,5 +1,7 @@
 package com.example.themoderncppchallenge;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,29 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends ProblemInterface {
-
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
+public class Problem_4 extends ProblemInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_problem_4);
 
         TextView subtitle = findViewById(R.id.subtitle);
-        subtitle.setText(getString(R.string.problem_with_number, 1));
+        subtitle.setText(getString(R.string.problem_with_number, 4));
 
         TextView problemTitle = findViewById(R.id.problemTitle);
-        problemTitle.setText(getString(R.string.problem_1_title));
+        problemTitle.setText(getString(R.string.problem_4_title));
 
         TextView problemText = findViewById(R.id.problemText);
-        problemText.setText(getString(R.string.problem_1_text));
+        problemText.setText(getString(R.string.problem_4_text));
 
-        Button button_previous = findViewById(R.id.button_previous);
-        button_previous.setVisibility(View.INVISIBLE);
+        Button button_next = findViewById(R.id.button_next);
+        button_next.setVisibility(View.INVISIBLE);
 
         EditText et = findViewById(R.id.plain_text_input);
         et.addTextChangedListener(new TextWatcher() {
@@ -48,7 +45,7 @@ public class MainActivity extends ProblemInterface {
                     limit =  Integer.parseInt(s.toString());
                 }
                 TextView tv = findViewById(R.id.result);
-                tv.setText(getString(R.string.result_placeholder, Sum3And5Multiples(limit)));
+                tv.setText(getString(R.string.result_placeholder, LargestPrimeSmallerThan(limit)));
             }
 
             @Override
@@ -58,21 +55,16 @@ public class MainActivity extends ProblemInterface {
         });
     }
 
-    public void goToNextProblem(View v)
-    {
-        Intent intent = new Intent(this, Problem_2.class);
-        startActivity(intent);
-    }
-
     @Override
-    public void goToPreviousProblem(View v) {
+    public void goToNextProblem(View v) {
         // empty on purpose
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     * @param i input given by the user which is the limit used by the algorithm
-     */
-    public native String Sum3And5Multiples(int i);
+    public void goToPreviousProblem(View v)
+    {
+        Intent intent = new Intent(this, Problem_3.class);
+        startActivity(intent);
+    }
+
+    public native String LargestPrimeSmallerThan(int userInput);
 }

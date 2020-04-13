@@ -17,4 +17,6 @@
     <string name="problem_3_title">Least Common Multiplier.</string>
     <string name="problem_3_text">Write a program that will, given two or more positive integers, calculate and print the least common multiplier of them all.</string>
     <string name="problem_3_current_calculation">lcm(%1$s)</string>
+    <string name="problem_4_title">Largest prime smaller than given number.</string>
+    <string name="problem_4_text">Write a program that computes and prints the largest prime number that is smaller then a number provided by the user, which must be a positive integer.</string>
 </resources>
