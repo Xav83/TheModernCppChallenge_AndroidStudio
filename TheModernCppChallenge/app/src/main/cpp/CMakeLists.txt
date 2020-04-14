@@ -21,6 +21,10 @@ add_library(problem4 STATIC Problem_4.hpp)
 set_property(TARGET problem4 PROPERTY LINKER_LANGUAGE CXX)
 target_link_libraries(problem4 PRIVATE primeNumber)
 
+add_library(problem5 STATIC Problem_5.hpp)
+set_property(TARGET problem5 PROPERTY LINKER_LANGUAGE CXX)
+target_link_libraries(problem5 PRIVATE primeNumber)
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -57,4 +61,4 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} problem1 problem2 problem3 problem4)
+                       ${log-lib} problem1 problem2 problem3 problem4 problem5)
