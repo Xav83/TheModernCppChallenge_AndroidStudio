@@ -2,6 +2,7 @@
 #include "Problem_2.hpp"
 #include "Problem_3.hpp"
 #include "Problem_4.hpp"
+#include "Problem_5.hpp"
 
 #include <jni.h>
 #include <string>
@@ -39,4 +40,18 @@ Java_com_example_themoderncppchallenge_Problem_14_LargestPrimeSmallerThan(JNIEnv
                                                                           jint user_input) {
     auto result = largestPrimeSmallerThan(user_input);
     return env->NewStringUTF(std::to_string(result).c_str());
+}
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_example_themoderncppchallenge_Problem_15_SexyPrimeSmallerThan(JNIEnv *env, jobject thiz,
+                                                                       jint user_input) {
+    auto result = sexyPrimeSmallerThan(user_input);
+    std::string text;
+    for(const auto& sexyPair : result) {
+        text += '(' + std::to_string(sexyPair.first) + ", " + std::to_string(sexyPair.second) + "), ";
+    }
+    // Removes the last ", "
+    text.pop_back();
+    text.pop_back();
+    return env->NewStringUTF(text.c_str());
 }
