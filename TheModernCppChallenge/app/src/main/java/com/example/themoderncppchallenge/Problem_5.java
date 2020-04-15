@@ -11,21 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Problem_4 extends ProblemInterface {
+public class Problem_5 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_problem_4);
+        setContentView(R.layout.activity_problem_5);
 
         TextView subtitle = findViewById(R.id.subtitle);
-        subtitle.setText(getString(R.string.problem_with_number, 4));
+        subtitle.setText(getString(R.string.problem_with_number, 5));
 
         TextView problemTitle = findViewById(R.id.problemTitle);
-        problemTitle.setText(getString(R.string.problem_4_title));
+        problemTitle.setText(getString(R.string.problem_5_title));
 
         TextView problemText = findViewById(R.id.problemText);
-        problemText.setText(getString(R.string.problem_4_text));
+        problemText.setText(getString(R.string.problem_5_text));
+
+        Button button_next = findViewById(R.id.button_next);
+        button_next.setVisibility(View.INVISIBLE);
 
         EditText et = findViewById(R.id.plain_text_input);
         et.addTextChangedListener(new TextWatcher() {
@@ -42,7 +45,7 @@ public class Problem_4 extends ProblemInterface {
                     limit =  Integer.parseInt(s.toString());
                 }
                 TextView tv = findViewById(R.id.result);
-                tv.setText(getString(R.string.result_placeholder, LargestPrimeSmallerThan(limit)));
+                tv.setText(getString(R.string.result_placeholder, SexyPrimeSmallerThan(limit)));
             }
 
             @Override
@@ -52,17 +55,16 @@ public class Problem_4 extends ProblemInterface {
         });
     }
 
-    @Override
-    public void goToNextProblem(View v) {
-        Intent intent = new Intent(this, Problem_5.class);
-        startActivity(intent);
+    public void goToNextProblem(View v)
+    {
+        // empty on purpose
     }
 
     public void goToPreviousProblem(View v)
     {
-        Intent intent = new Intent(this, Problem_3.class);
+        Intent intent = new Intent(this, Problem_4.class);
         startActivity(intent);
     }
 
-    public native String LargestPrimeSmallerThan(int userInput);
+    public native String SexyPrimeSmallerThan(int userInput);
 }

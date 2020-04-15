@@ -19,4 +19,6 @@
     <string name="problem_3_current_calculation">lcm(%1$s)</string>
     <string name="problem_4_title">Largest prime smaller than given number.</string>
     <string name="problem_4_text">Write a program that computes and prints the largest prime number that is smaller then a number provided by the user, which must be a positive integer.</string>
+    <string name="problem_5_title">Sexy prime pairs.</string>
+    <string name="problem_5_text">Write a program that prints all sexy prime pairs up to a limit entered by the user.</string>
 </resources>
