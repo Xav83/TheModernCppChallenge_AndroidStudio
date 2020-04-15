@@ -27,9 +27,6 @@ public class Problem_4 extends ProblemInterface {
         TextView problemText = findViewById(R.id.problemText);
         problemText.setText(getString(R.string.problem_4_text));
 
-        Button button_next = findViewById(R.id.button_next);
-        button_next.setVisibility(View.INVISIBLE);
-
         EditText et = findViewById(R.id.plain_text_input);
         et.addTextChangedListener(new TextWatcher() {
             @Override
@@ -57,7 +54,8 @@ public class Problem_4 extends ProblemInterface {
 
     @Override
     public void goToNextProblem(View v) {
-        // empty on purpose
+        Intent intent = new Intent(this, Problem_5.class);
+        startActivity(intent);
     }
 
     public void goToPreviousProblem(View v)

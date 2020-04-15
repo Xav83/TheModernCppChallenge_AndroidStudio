@@ -1,0 +1,41 @@
+package com.example.themoderncppchallenge;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class Problem_5 extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_problem_5);
+
+        TextView subtitle = findViewById(R.id.subtitle);
+        subtitle.setText(getString(R.string.problem_with_number, 5));
+
+        TextView problemTitle = findViewById(R.id.problemTitle);
+        problemTitle.setText(getString(R.string.problem_5_title));
+
+        TextView problemText = findViewById(R.id.problemText);
+        problemText.setText(getString(R.string.problem_5_text));
+
+        Button button_next = findViewById(R.id.button_next);
+        button_next.setVisibility(View.INVISIBLE);
+    }
+
+    public void goToNextProblem(View v)
+    {
+        // empty on purpose
+    }
+
+    public void goToPreviousProblem(View v)
+    {
+        Intent intent = new Intent(this, Problem_4.class);
+        startActivity(intent);
+    }
+}
