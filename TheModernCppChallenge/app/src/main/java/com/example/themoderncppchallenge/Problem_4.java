@@ -37,7 +37,7 @@ public class Problem_4 extends ProblemInterface {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int limit = 0;
-                if(count != 0)
+                if(s.length() != 0)
                 {
                     limit =  Integer.parseInt(s.toString());
                 }

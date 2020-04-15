@@ -51,7 +51,7 @@ public class Problem_2 extends ProblemInterface {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 EditText et = findViewById(R.id.second_input_number);
-                if(et.getText().length() == 0 || count == 0)
+                if(et.getText().length() == 0 || s.length() == 0)
                 {
                     return;
                 }
@@ -74,7 +74,7 @@ public class Problem_2 extends ProblemInterface {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 EditText et = findViewById(R.id.first_input_number);
-                if(et.getText().length() == 0 || count == 0)
+                if(et.getText().length() == 0 || s.length() == 0)
                 {
                     return;
                 }
