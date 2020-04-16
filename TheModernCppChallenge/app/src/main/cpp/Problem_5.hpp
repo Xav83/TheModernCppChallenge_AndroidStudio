@@ -7,7 +7,7 @@
 #include <vector>
 #include <utility>
 
-bool isSexyPrimePair(unsigned int firstNumber, unsigned int secondNumber)
+static const bool isSexyPrimePair(unsigned int firstNumber, unsigned int secondNumber)
 {
     return (std::abs(static_cast<int>(firstNumber - secondNumber)) == 6) && isPrime(firstNumber) && isPrime(secondNumber);
 }
