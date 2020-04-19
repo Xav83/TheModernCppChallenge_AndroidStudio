@@ -21,4 +21,6 @@
     <string name="problem_4_text">Write a program that computes and prints the largest prime number that is smaller then a number provided by the user, which must be a positive integer.</string>
     <string name="problem_5_title">Sexy prime pairs.</string>
     <string name="problem_5_text">Write a program that prints all sexy prime pairs up to a limit entered by the user.</string>
+    <string name="problem_6_title">Abundant numbers.</string>
+    <string name="problem_6_text">Write a program that prints all abundant numbers and their abundance, up to a number entered by the user.</string>
 </resources>
