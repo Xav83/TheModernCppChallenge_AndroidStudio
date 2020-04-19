@@ -44,6 +44,8 @@ public class Problem_6 extends AppCompatActivity {
                 {
                     limit =  Integer.parseInt(s.toString());
                 }
+                TextView tv = findViewById(R.id.result);
+                tv.setText(getString(R.string.result_placeholder, AbundantNumbersUpTo(limit)));
             }
 
             @Override
@@ -63,4 +65,6 @@ public class Problem_6 extends AppCompatActivity {
         Intent intent = new Intent(this, Problem_5.class);
         startActivity(intent);
     }
+
+    public native String AbundantNumbersUpTo(int userInput);
 }
