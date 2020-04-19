@@ -90,7 +90,7 @@ public class Problem_2 extends ProblemInterface {
 
     public void goToPreviousProblem(View v)
     {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Problem_1.class);
         startActivity(intent);
     }
 
