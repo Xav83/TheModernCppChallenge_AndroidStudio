@@ -2,18 +2,92 @@ package com.example.themoderncppchallenge;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
-public class MainActivity extends ProblemInterface {
+import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+    }
+
+    void addButton(@IdRes int id, String text)
+    {
+        RelativeLayout ll = findViewById(R.id.buttons);
+
+        RelativeLayout.LayoutParams newParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        Button b = new Button(this);
+        b.setId(id);
+        b.setText(text);
+        b.setOnClickListener(this);
+
+        newParams.addRule (RelativeLayout.ALIGN_LEFT);
+        b.setLayoutParams(newParams);
+        ll.addView(b);
+    }
+
+    void addButton(@IdRes int id, String text, @IdRes int idOfLeftElement)
+    {
+        RelativeLayout ll = findViewById(R.id.buttons);
+
+        RelativeLayout.LayoutParams newParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        Button b = new Button(this);
+        b.setId(id);
+        b.setText(text);
+        b.setOnClickListener(this);
+
+        newParams.addRule (RelativeLayout.RIGHT_OF, idOfLeftElement);
+        b.setLayoutParams(newParams);
+        ll.addView(b);
+    }
+
+    void addButtonBelow(@IdRes int id, String text, @IdRes int idOfElementOnTop)
+    {
+        RelativeLayout ll = findViewById(R.id.buttons);
+
+        RelativeLayout.LayoutParams newParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        Button b = new Button(this);
+        b.setId(id);
+        b.setText(text);
+        b.setOnClickListener(this);
+
+        newParams.addRule (RelativeLayout.BELOW, idOfElementOnTop);
+        b.setLayoutParams(newParams);
+        ll.addView(b);
+    }
+
+    void addButtonBelow(@IdRes int id, String text, @IdRes int idOfLeftElement, @IdRes int idOfElementOnTop)
+    {
+        RelativeLayout ll = findViewById(R.id.buttons);
+
+        RelativeLayout.LayoutParams newParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        Button b = new Button(this);
+        b.setId(id);
+        b.setText(text);
+        b.setOnClickListener(this);
+
+        newParams.addRule (RelativeLayout.RIGHT_OF, idOfLeftElement);
+        newParams.addRule (RelativeLayout.BELOW, idOfElementOnTop);
+        b.setLayoutParams(newParams);
+        ll.addView(b);
     }
 
     @Override
@@ -21,52 +95,39 @@ public class MainActivity extends ProblemInterface {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView subtitle = findViewById(R.id.subtitle);
-        subtitle.setText(getString(R.string.problem_with_number, 1));
-
-        TextView problemTitle = findViewById(R.id.problemTitle);
-        problemTitle.setText(getString(R.string.problem_1_title));
-
-        TextView problemText = findViewById(R.id.problemText);
-        problemText.setText(getString(R.string.problem_1_text));
-
-        Button button_previous = findViewById(R.id.button_previous);
-        button_previous.setVisibility(View.INVISIBLE);
-
-        EditText et = findViewById(R.id.plain_text_input);
-        et.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int limit = 0;
-                if(s.length() != 0)
-                {
-                    limit =  Integer.parseInt(s.toString());
-                }
-                TextView tv = findViewById(R.id.result);
-                tv.setText(getString(R.string.result_placeholder, Sum3And5Multiples(limit)));
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        addButton(R.id.menu_button_1, "1");
+        addButton(R.id.menu_button_2, "2", R.id.menu_button_1);
+        addButton(R.id.menu_button_3, "3", R.id.menu_button_2);
+        addButton(R.id.menu_button_4, "4", R.id.menu_button_3);
+        addButtonBelow(R.id.menu_button_5, "5", R.id.menu_button_1);
+        addButtonBelow(R.id.menu_button_6, "6", R.id.menu_button_5, R.id.menu_button_2);
     }
 
-    public void goToNextProblem(View v)
-    {
-        Intent intent = new Intent(this, Problem_2.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void goToPreviousProblem(View v) {
-        // empty on purpose
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.menu_button_1:
+                startActivity(new Intent(this, Problem_1.class));
+                break;
+            case R.id.menu_button_2:
+                startActivity(new Intent(this, Problem_2.class));
+                break;
+            case R.id.menu_button_3:
+                startActivity(new Intent(this, Problem_3.class));
+                break;
+            case R.id.menu_button_4:
+                startActivity(new Intent(this, Problem_4.class));
+                break;
+            case R.id.menu_button_5:
+                startActivity(new Intent(this, Problem_5.class));
+                break;
+            case R.id.menu_button_6:
+                startActivity(new Intent(this, Problem_6.class));
+                break;
+            default:
+                new AssertionError("Unknown menu button.");
+                break;
+        }
     }
 
     /**
