@@ -6,6 +6,7 @@
     <string name="button_clear">CLEAR</string>
     <string name="button_previous">PREVIOUS</string>
     <string name="button_next">NEXT</string>
+    <string name="button_menu">MENU</string>
     <string name="result">Result:</string>
     <string name="result_placeholder">Result: %1$s</string>
     <string name="problem_title_unknown">Please specify a problem title.</string>
